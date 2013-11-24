@@ -1,3 +1,7 @@
+#
+# This file needs to be included BEFORE the first target in another Makefile.
+#
+
 documentation = README.md
 
 #

@@ -16,7 +16,7 @@ almost_all_repositories = BANCStar bibtex CESAR2012 CV dissertation \
 	Makefiles notes OpenSolaris optical_tempest PostScript public_keys \
 	subset VALID2010
 
-the_rest_of_the_repositories = FreeBSD
+the_rest_of_the_repositories = FreeBSD 33-questions
 
 all_repositories = $(almost_all_repositories) $(the_rest_of_the_repositories)
 
@@ -26,6 +26,8 @@ all:
 	@echo "Use 'fix' to fix-up remote URLs in all repositories for SSH access to GitHub."
 	@echo "Use 'commit_all' to iterate through all the repositories and commit changes."
 	@echo "Use 'sync_all' to sync all repositories to GitHub."
+
+include git2.mk
 
 clean:
 	@echo "\"make clean\" doesn't do anything here."
@@ -51,8 +53,6 @@ sync_all:
 	for REPOSITORY in $(the_rest_of_the_repositories) ; do \
 		(cd ../$$REPOSITORY && make -f not_Makefile sync) ; \
 	done
-
-include git2.mk
 
 notes:
 	(cd ../notes && make vi)

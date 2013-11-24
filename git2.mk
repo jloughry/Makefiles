@@ -1,4 +1,5 @@
-
+#
+# This file needs to be included AFTER the first target in another Makefile.
 #
 # NOTE: any makefile that includes this file needs to have a "clean" target
 # even if it doesn't do anything.
