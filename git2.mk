@@ -1,3 +1,9 @@
+
+#
+# NOTE: any makefile that includes this file needs to have a "clean" target
+# even if it doesn't do anything.
+#
+
 readme:
 	vi $(documentation)
 
