@@ -11,6 +11,11 @@ directory when I rationalised the Makefiles on 20131119.1814.
 Consider further rationalising the Makefiles here by having them all `include' boilerplate
 that is common from a common source file.
 
+**TODO:** finish putting include files in other repos; currently only a few are done.
+
+Targets
+-------
+
 There are three interesting targets in the Makefile:
 
  - `make sync_all` will synchronise all twenty-odd repositories with GitHub, via SSH.
