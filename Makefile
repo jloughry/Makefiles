@@ -27,6 +27,9 @@ all:
 	@echo "Use 'commit_all' to iterate through all the repositories and commit changes."
 	@echo "Use 'sync_all' to sync all repositories to GitHub."
 
+clean:
+	@echo "\"make clean\" doesn't do anything here."
+
 fix:
 	for REPOSITORY in $(all_repositories) ; do \
 		(cd ../$$REPOSITORY && git remote set-url origin git@github.com:jloughry/$$REPOSITORY.git) ; \
