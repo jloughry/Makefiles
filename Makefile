@@ -3,6 +3,11 @@
 # and can't contain other stuff. So the Makefile in that repository that actually
 # gets used is called not_Makefile.
 #
+# When creating a new repository in the GitHub for Windows app, remember to "publish"
+# it there first before trying to "sync" from this Makefile.
+#
+# TODO: fix the above restriction.
+#
 
 include git1.mk
 
