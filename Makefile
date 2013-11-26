@@ -9,8 +9,6 @@
 # TODO: fix the above restriction.
 #
 
-include git1.mk
-
 almost_all_repositories = BANCStar bibtex CESAR2012 CV dissertation \
 	experiments fizzbuzz FreeBSD help HST13 jloughry.github.io M1 \
 	Makefiles notes OpenSolaris optical_tempest PostScript public_keys \
@@ -26,8 +24,6 @@ all:
 	@echo "Use 'fix' to fix-up remote URLs in all repositories for SSH access to GitHub."
 	@echo "Use 'commit_all' to iterate through all the repositories and commit changes."
 	@echo "Use 'sync_all' to sync all repositories to GitHub."
-
-include git2.mk
 
 clean:
 	@echo "\"make clean\" doesn't do anything here."
@@ -54,9 +50,5 @@ sync_all:
 		(cd ../$$REPOSITORY && make -f not_Makefile sync) ; \
 	done
 
-notes:
-	(cd ../notes && make vi)
-
-bibtex:
-	(cd ../bibtex && make vi)
+include common.mk
 
