@@ -24,15 +24,15 @@ There are three interesting targets in the Makefile:
 
  - `make fix` will adjust the .git/config files of all repositories to work with SSH.
 
-git1.mk
--------
+common.mk
+---------
 
-The file `git1.mk` is included near the beginning of a Makefile and contains some variable
-definitions and sets the timestamp.
+The file `common.mk` is included at the end of most of the other makefiles and contains
+convenience targets. **NOTE: do not include it in the notes, bibtex, CV, or *this* directory's
+makefiles; it can cause an infinite loop.**
 
-git2.mk
--------
+TODO:
+-----
 
-The file `git2.mk` is included near the end of a Makefile and contains definitions common
-to Git repositories such as "commit" and "sync".
+Double-colon rules in GNU Make might exist to solve the above problem; try it when I have time.
 

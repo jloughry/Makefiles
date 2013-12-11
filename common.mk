@@ -1,7 +1,16 @@
 #
-# NOTE: any makefile that includes this file needs to have a "clean" target
-# even if it doesn't do anything.
+# double-colon targets are done in addition to anything that might exist in the parent Makefile.
 #
+
+all::
+	@echo "This is \"all\" in the common.mk file"
+
+clean::
+	@echo "This is \"clean\" in the common.mk file"
+	rm -f README.md.bak
+
+spell::
+	aspell --lang=en_GB -H check README.md
 
 readme:
 	vi README.md
@@ -17,14 +26,14 @@ sync:
 	git push
 
 notes:
-	(cd ../notes && make vi)
+	(cd ../notes && vi notes.tex)
 
 quotes:
-	(cd ../notes && make quotes)
+	(cd ../notes && vi quotes.tex)
 
 bibtex:
 	(cd ../bibtex && make vi)
 
 cv:
-	(cd ../CV && make vi)
+	(cd ../CV && make vi loughry_cv.tex)
 
