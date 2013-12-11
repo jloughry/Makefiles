@@ -38,13 +38,13 @@ fix:
 	done
 	@echo "This resets the .git/config file in each respository to allow SSH (harmless)."
 
-commit_local_only:
+local_commit:
 	make clean
 	git add .
 	git commit -am "commit from Makefile `date +%Y%m%d.%H%M`"
-	make sync_local_only
+	make local_sync
 
-sync_local_only:
+local_sync:
 	git pull --rebase
 	git push
 
