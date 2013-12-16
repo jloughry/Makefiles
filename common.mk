@@ -2,6 +2,8 @@
 # double-colon targets are done in addition to anything that might exist in the parent Makefile.
 #
 
+github_repository_level = /cygdrive/c/Documents\ and\ Settings/rjl/My\ Documents/thesis/github/
+
 all::
 	@echo "This is \"all\" in the common.mk file"
 
@@ -26,14 +28,14 @@ sync:
 	git push
 
 notes:
-	(cd ../notes && vi notes.tex)
+	(cd $(github_repository_level)/notes && vi notes.tex)
 
 quotes:
-	(cd ../notes && vi quotes.tex)
+	(cd $(github_repository_level)/notes && vi quotes.tex)
 
 bibtex:
-	(cd ../bibtex && make vi)
+	(cd $(github_repository_level)/bibtex && make vi)
 
 cv:
-	(cd ../CV && make vi loughry_cv.tex)
+	(cd $(github_repository_level)/CV && make vi loughry_cv.tex)
 
