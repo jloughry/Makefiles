@@ -2,6 +2,12 @@
 # double-colon targets are done in addition to anything that might exist in the parent Makefile.
 #
 
+#
+# I hate to hard-code this path even as much as is done here, because
+# the result only works for repositories underneath my `github' directory,
+# but trying to apply too much automation violates the YAGNI principle.
+#
+
 github_repository_level = /cygdrive/c/Documents\ and\ Settings/rjl/My\ Documents/thesis/github/
 
 all::
@@ -18,14 +24,22 @@ readme:
 	vi README.md
 
 commit:
-	make clean
-	git add .
-	git commit -am "commit from Makefile `date +%Y%m%d.%H%M`"
-	make sync
+	@if [ ! -d .git ]; then \
+		echo "Not in a Git respository. Try going up a level." ;    \
+	else                                                            \
+		make clean ;                                                \
+		git add . ;                                                 \
+		git commit -am "commit from Makefile `date +%Y%m%d.%H%M`" ; \
+		make sync ;                                                 \
+	fi
 
 sync:
-	git pull --rebase
-	git push
+	@if [ ! -d .git ]; then                                      \
+		echo "Not in a Git respository. Try going up a level." ; \
+	else                                                         \
+		git pull --rebase ;                                      \
+		git push ;                                               \
+	fi
 
 notes:
 	(cd $(github_repository_level)/notes && vi notes.tex)
