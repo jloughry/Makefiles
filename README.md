@@ -36,3 +36,11 @@ TODO:
 
 Double-colon rules in GNU Make might exist to solve the above problem; try it when I have time.
 
+Git Usage Notes:
+----------------
+
+To commit changes to `common.mk` itself, use `make local_commit`.
+
+The `common.mk` file is not included in the Makefile in this directory to avoid
+recursion problems. I'm unhappy with the solution and intend to fix it some day.
+
