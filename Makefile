@@ -43,15 +43,15 @@ fix:
 # on the same logical line, because make executes each line in a new subshell.
 #
 
-local_commit:
+local_commit: commit_message.txt
 	make clean
 	git add .
-	@echo "***********************************************"
-	@echo -n "Give me a ONE-LINE commit message: "
-	@read commit_message ; \
-	git commit -am $$commit_message
-	# git commit -am \"$$commit_message\"
-	# make local_sync
+	git commit -aF commit_message.txt
+	rm -f commit_message.txt
+	make local_sync
+
+commit_message.txt:
+	./get_commit_message.sh
 
 local_sync:
 	git pull --rebase
