@@ -44,7 +44,7 @@ local_commit:
 	@echo -n "Give me a ONE-LINE commit message: "
 	@read commit_message
 	git add .
-	git commit -am "$commit_message"
+	git commit -am "\$commit_message"
 	# git commit -am "commit from Makefile `date +%Y%m%d.%H%M`"
 	make local_sync
 
