@@ -25,20 +25,23 @@ readme:
 
 commit:
 	@if [ ! -d .git ]; then \
-		echo "Not in a Git respository. Try going up a level." ;    \
-	else                                                            \
-		make clean ;                                                \
-		git add . ;                                                 \
-		git commit -am "commit from Makefile `date +%Y%m%d.%H%M`" ; \
-		make sync ;                                                 \
+		echo "Not in a Git respository. Try going up a level." ; \
+	else                                                         \
+		make clean                                             ; \
+		echo "***********************************************" ; \
+		echo -n "Give me a ONE-LINE commit message: "          ; \
+		read commit_message                                    ; \
+		git add .                                              ; \
+		git commit -am "$$commit_message"                      ; \
+		make sync                                              ; \
 	fi
 
 sync:
-	@if [ ! -d .git ]; then                                      \
+	@if [ ! -d .git ]; then \
 		echo "Not in a Git respository. Try going up a level." ; \
 	else                                                         \
-		git pull --rebase ;                                      \
-		git push ;                                               \
+		git pull --rebase                                      ; \
+		git push                                               ; \
 	fi
 
 notes:
