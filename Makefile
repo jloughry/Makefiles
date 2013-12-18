@@ -38,11 +38,6 @@ fix:
 	done
 	@echo "This resets the .git/config file in each respository to allow SSH (harmless)."
 
-#
-# In the following section, it is necessary for "read" and "git-commit" to be
-# on the same logical line, because make executes each line in a new subshell.
-#
-
 local_commit: commit_message.txt
 	make clean
 	git add .
@@ -51,7 +46,7 @@ local_commit: commit_message.txt
 	rm -f commit_message.txt
 
 commit_message.txt:
-	./get_commit_message.sh
+	@./get_commit_message.sh
 
 local_sync:
 	git pull --rebase

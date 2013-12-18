@@ -1,14 +1,18 @@
 #
+# I hate to hard-code this path, because the resulting functionality only
+# works for repositories underneath my `github' directory, but trying to
+# make automation too intelligent violates the YAGNI principle and I have
+# a thesis to write.
+#
+
+github_repository_level = /cygdrive/c/Documents\ and\ Settings/rjl/My\ Documents/thesis/github
+
+commit_message = commit_message.txt
+get_commit_message = get_commit_message.sh
+
+#
 # double-colon targets are done in addition to anything that might exist in the parent Makefile.
 #
-
-#
-# I hate to hard-code this path even as much as is done here, because
-# the result only works for repositories underneath my `github' directory,
-# but trying to apply too much automation violates the YAGNI principle.
-#
-
-github_repository_level = /cygdrive/c/Documents\ and\ Settings/rjl/My\ Documents/thesis/github/
 
 all::
 	@echo "This is \"all\" in the common.mk file"
@@ -23,17 +27,25 @@ spell::
 readme:
 	vi README.md
 
-commit:
+$(commit_message): $(get_commit_message)
+	@./$(get_commit_message)
+
+#
+# make the symlink to the shell script if it doesn't already exist
+#
+
+$(get_commit_message):
+	ln -s $(github_repository_level)/Makefiles/$(get_commit_message)
+
+commit: $(commit_message)
 	@if [ ! -d .git ]; then \
 		echo "Not in a Git respository. Try going up a level." ; \
 	else                                                         \
 		make clean                                             ; \
-		echo "***********************************************" ; \
-		echo -n "Give me a ONE-LINE commit message: "          ; \
-		read commit_message                                    ; \
 		git add .                                              ; \
-		git commit -am "$$commit_message"                      ; \
+		git commit -aF $(commit_message)                       ; \
 		make sync                                              ; \
+		rm -f $(commit_message)                                ; \
 	fi
 
 sync:

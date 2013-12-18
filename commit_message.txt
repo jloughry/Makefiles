@@ -1,1 +1,3 @@
-testing makefile
+commit message can now be multiple lines and can end with ^D or full stop on a line by itself.
+
+The commit message can be multiple lines long.

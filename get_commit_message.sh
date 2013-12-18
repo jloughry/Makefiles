@@ -1,8 +1,13 @@
 #!/bin/sh
 
-echo "Give me a commit message (it can be multiple lines)"
+message_file="./commit_message.txt"
+
+rm -f $message_file
+
+echo "Ready to commit; give me a message (it can be multiple lines)"
 echo -n "> "
 while read commit_message
-	do echo $commit_message >> commit_message.txt
+	if [ "$commit_message" == "." ] ; then break; fi
+	do echo $commit_message >> $message_file
 done
 
