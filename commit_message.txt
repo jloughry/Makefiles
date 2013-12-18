@@ -1,2 +1,1 @@
-get commit message to use for commits. Support multiple-line commit messages.
-This is a multiple-line commit message.
+testing local_commit

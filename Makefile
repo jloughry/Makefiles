@@ -48,6 +48,8 @@ local_commit: commit_message.txt
 	git add .
 	git commit -aF commit_message.txt
 	rm -f commit_message.txt
+	git add .
+	git commit -a
 	make local_sync
 
 commit_message.txt:
