@@ -49,7 +49,7 @@ local_commit:
 	@echo "***********************************************"
 	@echo -n "Give me a ONE-LINE commit message: "
 	@read commit_message ; \
-	git commit -am \"$$commit_message\"
+	git commit -am $$commit_message
 	# git commit -am \"$$commit_message\"
 	# make local_sync
 
