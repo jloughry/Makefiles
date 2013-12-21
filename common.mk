@@ -37,14 +37,17 @@ $(commit_message): $(get_commit_message)
 $(get_commit_message):
 	ln -s $(github_repository_level)/Makefiles/$(get_commit_message)
 
-commit: $(commit_message)
+commit:
+	make commit_only
+	make sync
+
+commit_only: $(commit_message)
 	@if [ ! -d .git ]; then \
 		echo "Not in a Git respository. Try going up a level." ; \
 	else                                                         \
 		make clean                                             ; \
 		git add .                                              ; \
 		git commit -aF $(commit_message)                       ; \
-		make sync                                              ; \
 		rm -f $(commit_message)                                ; \
 	fi
 
