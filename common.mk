@@ -41,6 +41,8 @@ commit:
 	make commit_only
 	make sync
 
+commit-only: commit_only
+
 commit_only: $(commit_message)
 	@if [ ! -d .git ]; then \
 		echo "Not in a Git respository. Try going up a level." ; \

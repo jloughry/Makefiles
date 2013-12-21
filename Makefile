@@ -38,6 +38,9 @@ fix:
 	done
 	@echo "This resets the .git/config file in each respository to allow SSH (harmless)."
 
+local-commit: local_commit
+local-commit-only: local_commit_only
+
 local_commit:
 	make local_commit_only
 	make local_sync

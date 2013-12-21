@@ -1,0 +1,4 @@
+added alias local-commit-only for local_commit_only in Makefile; similarly for
+local-commit and local_commit.
+
+In common.mk, added commit-only alias for commit_only
