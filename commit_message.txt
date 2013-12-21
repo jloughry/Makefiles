@@ -1,1 +1,0 @@
-Checked documentation; Make is supposed to look at the modification time of the target of a symlink.
