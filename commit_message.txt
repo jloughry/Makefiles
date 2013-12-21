@@ -1,3 +1,1 @@
-Makefile should depend on common.mk so if changes are made to common.mk, everything gets remade.
-
-There is a problem with this, however; since common.mk is symlinked almost everywhere, Make does not seem to detect a change to the modification time of the target of the symlink. Looking for a solution to this problem.
+Checked documentation; Make is supposed to look at the modification time of the target of a symlink.
