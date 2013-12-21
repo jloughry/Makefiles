@@ -1,4 +1,3 @@
-added alias local-commit-only for local_commit_only in Makefile; similarly for
-local-commit and local_commit.
+Makefile should depend on common.mk so if changes are made to common.mk, everything gets remade.
 
-In common.mk, added commit-only alias for commit_only
+There is a problem with this, however; since common.mk is symlinked almost everywhere, Make does not seem to detect a change to the modification time of the target of the symlink. Looking for a solution to this problem.

@@ -61,6 +61,12 @@ sync:
 		git push                                               ; \
 	fi
 
+#
+# Makefile depends on common.mk to be sure everything gets rebuilt if common.mk changes.
+#
+
+Makefile: common.mk
+
 notes:
 	(cd $(github_repository_level)/notes && vi notes.tex)
 
