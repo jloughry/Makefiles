@@ -62,10 +62,13 @@ sync:
 	fi
 
 #
-# Makefile depends on common.mk to be sure everything gets rebuilt if common.mk changes.
+# Makefile depends on common.mk to be sure everything gets rebuilt
+# if common.mk changes, but it has to be done this way to `force'
+# the Makefile out-of-date if common.mk changes.
 #
 
 Makefile: common.mk
+	touch Makefile
 
 notes:
 	(cd $(github_repository_level)/notes && vi notes.tex)
