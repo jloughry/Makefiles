@@ -45,8 +45,11 @@ commit-only: commit_only
 
 commit_only:
 	@if [ ! -d .git ]; then \
+		echo                                                   ; \
 		echo "Not in a Git respository. Try going up a level." ; \
-	else                                                         \
+		echo                                                   ; \
+		false                                                  ; \
+	else \
 		make clean                                             ; \
 		make $(commit_message)                                 ; \
 		git add .                                              ; \
@@ -56,8 +59,11 @@ commit_only:
 
 sync:
 	@if [ ! -d .git ]; then \
+		echo                                                   ; \
 		echo "Not in a Git respository. Try going up a level." ; \
-	else                                                         \
+		echo                                                   ; \
+		false                                                  ; \
+	else \
 		git pull                                               ; \
 		git push                                               ; \
 	fi

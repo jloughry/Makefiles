@@ -1,1 +1,3 @@
-removed '--rebase' option from 'git pull'
+add blank lines around message if not in a Git repository so that
+it's more noticeable in Make output; make build fail earlier if not
+in a Git repository.
