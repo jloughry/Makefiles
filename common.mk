@@ -43,11 +43,12 @@ commit:
 
 commit-only: commit_only
 
-commit_only: $(commit_message)
+commit_only:
 	@if [ ! -d .git ]; then \
 		echo "Not in a Git respository. Try going up a level." ; \
 	else                                                         \
 		make clean                                             ; \
+		make $(commit_message)                                 ; \
 		git add .                                              ; \
 		git commit -aF $(commit_message)                       ; \
 		rm -f $(commit_message)                                ; \
@@ -57,7 +58,7 @@ sync:
 	@if [ ! -d .git ]; then \
 		echo "Not in a Git respository. Try going up a level." ; \
 	else                                                         \
-		git pull --rebase                                      ; \
+		git pull                                               ; \
 		git push                                               ; \
 	fi
 
