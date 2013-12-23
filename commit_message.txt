@@ -1,1 +1,1 @@
-removed `--no-rebase' option from `git pull' in commit target.
+removed '--rebase' option from 'git pull'

@@ -28,6 +28,7 @@ all::
 	@echo "Use 'fix' to fix-up remote URLs in all repositories for SSH access to GitHub."
 	@echo "Use 'commit_all' to iterate through all the repositories and commit changes (and sync)."
 	@echo "Use 'sync_all' to ONLY sync all repositories to GitHub (should not be needed often)."
+	@echo "Use 'local_commit' to commit changes to the files in *this* directory."
 
 clean::
 	@echo "\"make clean\" doesn't do anything here."
@@ -55,7 +56,7 @@ commit_message.txt:
 	@./get_commit_message.sh
 
 local_sync:
-	git pull --rebase
+	git pull
 	git push
 
 commit_all:
