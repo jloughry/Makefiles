@@ -1,1 +1,1 @@
-should the common.mk file do a 'make local-commit' here before every sync?
+test commit
