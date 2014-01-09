@@ -41,6 +41,10 @@ commit:
 	make commit_only
 	make sync
 
+#
+# convenience target in case I mis-type it:
+#
+
 commit-only: commit_only
 
 commit_only:
