@@ -42,7 +42,7 @@ commit:
 	make sync
 
 #
-# convenience target in case I mis-type it:
+# convenience target in case I mis-type the underscore.
 #
 
 commit-only: commit_only
