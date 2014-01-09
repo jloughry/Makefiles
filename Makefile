@@ -39,8 +39,13 @@ fix:
 	done
 	@echo "This resets the .git/config file in each respository to allow SSH (harmless)."
 
+#
+# convenience targets in case I mistype the underscore.
+#
+
 local-commit: local_commit
 local-commit-only: local_commit_only
+local-sync: local_sync
 
 local_commit:
 	make local_commit_only
