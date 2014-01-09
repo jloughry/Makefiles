@@ -1,1 +1,1 @@
-added convenience target (for misspellings) in local Makefile
+should the common.mk file do a 'make local-commit' here before every sync?
