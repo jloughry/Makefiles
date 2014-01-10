@@ -1,1 +1,1 @@
-test commit
+This version contains "repair-git-blame" but it's going to be removed soon.

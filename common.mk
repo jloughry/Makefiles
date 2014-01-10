@@ -77,6 +77,8 @@ sync:
 	fi
 
 repair-git-blame: $(fix_bad_commits)
+	git add .
+	git commit -am "automated commit after making symlink to fix_bad_commits.sh"
 	@./$(fix_bad_commits)
 	git add .
 	git commit -am "commit after running \`make repair-git-blame\`"
