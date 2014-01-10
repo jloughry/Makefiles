@@ -1,1 +1,1 @@
-removed fix_bad_commits.sh functionality from common.mk
+common.mk returned to normal
