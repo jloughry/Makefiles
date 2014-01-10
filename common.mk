@@ -38,9 +38,6 @@ $(commit_message): $(get_commit_message)
 $(get_commit_message):
 	ln -s $(github_repository_level)/Makefiles/$(get_commit_message)
 
-$(fix_bad_commits):
-	ln -s $(github_repository_level)/Makefiles/$(fix_bad_commits)
-
 commit:
 	make commit_only
 	make sync
@@ -75,14 +72,6 @@ sync:
 		git pull                                               ; \
 		git push                                               ; \
 	fi
-
-repair-git-blame: $(fix_bad_commits)
-	git add .
-	git commit -am "automated commit after making symlink to fix_bad_commits.sh"
-	@./$(fix_bad_commits)
-	git add .
-	git commit -am "commit after running \`make repair-git-blame\`"
-	make sync
 
 #
 # Makefile depends on common.mk to be sure everything gets rebuilt

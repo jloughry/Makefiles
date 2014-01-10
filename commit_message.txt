@@ -1,1 +1,1 @@
-added warning message to script that does git-filter-branch
+removed fix_bad_commits.sh functionality from common.mk
