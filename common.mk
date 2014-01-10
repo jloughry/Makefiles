@@ -9,6 +9,7 @@ github_repository_level = /cygdrive/c/Documents\ and\ Settings/rjl/My\ Documents
 
 commit_message = commit_message.txt
 get_commit_message = get_commit_message.sh
+fix_bad_commits = fix_bad_commits.sh
 
 #
 # double-colon targets are done in addition to anything that might exist in the parent Makefile.
@@ -31,11 +32,14 @@ $(commit_message): $(get_commit_message)
 	@./$(get_commit_message)
 
 #
-# make the symlink to the shell script if it doesn't already exist
+# make symlink to shell scripts if they don't already exist
 #
 
 $(get_commit_message):
 	ln -s $(github_repository_level)/Makefiles/$(get_commit_message)
+
+$(fix_bad_commits):
+	ln -s $(github_repository_level)/Makefiles/$(fix_bad_commits)
 
 commit:
 	make commit_only
@@ -71,6 +75,12 @@ sync:
 		git pull                                               ; \
 		git push                                               ; \
 	fi
+
+repair-git-blame: $(fix_bad_commits)
+	@./$(fix_bad_commits)
+	git add .
+	git commit -am "commit after running \`make repair-git-blame\`"
+	make sync
 
 #
 # Makefile depends on common.mk to be sure everything gets rebuilt
