@@ -10,6 +10,10 @@
 # Modified from Chapter 6 in Scott Chacon, "Pro Git" (New York: Apress, 2009).
 #
 
+echo "WARNING: this script is hazardous. It will duplicate almost every commit in your repository."
+echo "(defanged)"
+exit 1
+
 git filter-branch -f --commit-filter '
 	if [ "$GIT_AUTHOR_EMAIL" = "rjl@applied-math.org" ] \
 		|| [ "$GIT_AUTHOR_EMAIL" = "joe.loughry@stx.ox.ac.uk" ]

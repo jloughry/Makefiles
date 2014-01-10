@@ -1,1 +1,1 @@
-This version contains "repair-git-blame" but it's going to be removed soon.
+added warning message to script that does git-filter-branch
