@@ -7,6 +7,9 @@
 
 github_repository_level = /cygdrive/c/Documents\ and\ Settings/rjl/My\ Documents/thesis/github
 
+bibtex_file = consolidated_bibtex_file.bib
+bibtex_source = $(github_repository_level)/bibtex/consolidated_bibtex_source.bib
+
 commit_message = commit_message.txt
 get_commit_message = get_commit_message.sh
 fix_bad_commits = fix_bad_commits.sh
@@ -15,18 +18,31 @@ fix_bad_commits = fix_bad_commits.sh
 # double-colon targets are done in addition to anything that might exist in the parent Makefile.
 #
 
+.PHONY: all clean allclean spell readme commit commit_only sync notes quotes bibtex cv
+
 all::
 	@echo "This is \"all\" in the common.mk file"
 
 clean::
 	@echo "This is \"clean\" in the common.mk file"
-	rm -f README.md.bak
+	rm -f README.md.bak $(commit_message)
 
 spell::
 	aspell --lang=en_GB -H check README.md
 
 readme:
 	vi README.md
+
+#
+# Copy in the latest BibTeX file if needed
+#
+
+$(bibtex_file): $(bibtex_source)
+	cp $(bibtex_source) $@
+
+#
+# Like a lazy evaluation for commit message.
+#
 
 $(commit_message): $(get_commit_message)
 	@./$(get_commit_message)

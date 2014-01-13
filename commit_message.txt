@@ -1,1 +1,1 @@
-common.mk returned to normal
+not sure why consolidated_bibtex_file.bib is not getting made, but can fix it local Makefiles for now
