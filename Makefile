@@ -89,16 +89,16 @@ spell::
 	aspell --lang=en_GB check $(documentation)
 
 notes:
-	(cd notes && make vi)
+	(cd ../notes && make vi)
 
 quotes:
-	(cd notes && make quotes)
+	(cd ../notes && make quotes)
 
 bibtex:
-	(cd bibtex && make vi)
+	(cd ../bibtex && make vi)
 
 cv:
-	(cd CV && make vi)
+	(cd ../CV && make vi)
 
 #
 # Note: do not include common.mk here: it could cause all of the repositories to be

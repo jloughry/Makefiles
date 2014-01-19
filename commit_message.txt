@@ -1,1 +1,1 @@
-make a symlink to $(bibtex_file) where needed.
+fixed broken local targets for notes, quotes, bibtex, CV
