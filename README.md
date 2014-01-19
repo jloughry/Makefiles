@@ -34,7 +34,16 @@ makefiles; it can cause an infinite loop.**
 TODO:
 -----
 
-Double-colon rules in GNU Make might exist to solve the above problem; try it when I have time.
+Fix the broken dependency of `$(bibtex_file)` in `common.mk`. I don't know why it
+doesn't detect that the local copy of `$(bibtex_file) is out of date and copy in a
+new one like it's supposed to. I implemented a workaround, poor but sufficient, by
+adding a `make $(bibtex_file)` early in the build process everywhere that needed
+it.
+
+A better solution might be to implement a symlink to the canonical `$(bibtex_file)`
+and make that symlink if it doesn't already exist. The risk of that is creating a
+score of opportunities to accidentally delete the one copy of the file, but Git
+keeps a copy, so maybe that's not such a bad risk.
 
 Git Usage Notes:
 ----------------

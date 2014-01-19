@@ -1,1 +1,1 @@
-not sure why consolidated_bibtex_file.bib is not getting made, but can fix it local Makefiles for now
+document the workaround for broken dependency on $(bibtex_file)
