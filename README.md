@@ -40,10 +40,12 @@ new one like it's supposed to. I implemented a workaround, poor but sufficient, 
 adding a `make $(bibtex_file)` early in the build process everywhere that needed
 it.
 
-A better solution might be to implement a symlink to the canonical `$(bibtex_file)`
-and make that symlink if it doesn't already exist. The risk of that is creating a
-score of opportunities to accidentally delete the one copy of the file, but Git
-keeps a copy, so maybe that's not such a bad risk.
+### Update: I still don't know why the dependency on `$(bibtex_file` doesn't work,
+but the latest BibTeX is no longer copied in; it is symlinked. The `make $(bibtex_file)`
+is still needed early in the build process for anything that uses BibTeX, but it uses
+the new symlink mechanism now. I'll go around and delete the local copies of
+`consolidated_bibtex_file.bib` everywhere and let `common.mk` establish symlinks
+where needed.
 
 Git Usage Notes:
 ----------------

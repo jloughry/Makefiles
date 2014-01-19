@@ -1,1 +1,1 @@
-document the workaround for broken dependency on $(bibtex_file)
+make a symlink to $(bibtex_file) where needed.

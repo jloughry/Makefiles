@@ -34,14 +34,14 @@ readme:
 	vi README.md
 
 #
-# Copy in the latest BibTeX file if needed
+# Link to the BibTeX file if needed (so we always have the latest).
 #
 
-$(bibtex_file): $(bibtex_source)
-	cp $(bibtex_source) $@
+$(bibtex_file):
+	ln -s $(bibtex_source) $(bibtex_file)
 
 #
-# Like a lazy evaluation for commit message.
+# This works like a lazy evaluation for commit message.
 #
 
 $(commit_message): $(get_commit_message)
