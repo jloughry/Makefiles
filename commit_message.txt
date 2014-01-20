@@ -1,1 +1,2 @@
-fixed broken local targets for notes, quotes, bibtex, CV
+after recovering consolidated_bibtex_source.bib; added make commit-bibtex target
+to common.mk file

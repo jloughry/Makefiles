@@ -18,7 +18,7 @@ fix_bad_commits = fix_bad_commits.sh
 # double-colon targets are done in addition to anything that might exist in the parent Makefile.
 #
 
-.PHONY: all clean allclean spell readme commit commit_only sync notes quotes bibtex cv
+.PHONY: all clean allclean spell readme commit commit_only sync notes quotes bibtex cv commit-bibtex
 
 all::
 	@echo "This is \"all\" in the common.mk file"
@@ -34,11 +34,13 @@ readme:
 	vi README.md
 
 #
-# Link to the BibTeX file if needed (so we always have the latest).
+# Link to the BibTeX file if the link doesn't already exist (so we always have latest).
 #
 
 $(bibtex_file):
-	ln -s $(bibtex_source) $(bibtex_file)
+	@if [ ! -L $(bibtex_file) ]; then           \
+		ln -s $(bibtex_source) $(bibtex_file) ; \
+	fi
 
 #
 # This works like a lazy evaluation for commit message.
@@ -57,6 +59,9 @@ $(get_commit_message):
 commit:
 	make commit_only
 	make sync
+
+commit-bibtex:
+	(cd $(github_repository_level)/bibtex && make commit)
 
 #
 # convenience target in case I mis-type the underscore.
