@@ -1,2 +1,1 @@
-after recovering consolidated_bibtex_source.bib; added make commit-bibtex target
-to common.mk file
+added version number to common.mk
