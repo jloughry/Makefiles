@@ -46,6 +46,7 @@ fix:
 local-commit: local_commit
 local-commit-only: local_commit_only
 local-sync: local_sync
+commit-local: local_commit
 
 local_commit:
 	make local_commit_only
