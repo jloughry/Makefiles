@@ -106,10 +106,10 @@ Makefile: common.mk
 	touch Makefile
 
 notes:
-	(cd $(github_repository_level)/notes && vi notes.tex)
+	(cd $(github_repository_level)/notes.new && vi notes.tex)
 
 quotes:
-	(cd $(github_repository_level)/notes && vi quotes.tex)
+	(cd $(github_repository_level)/notes.new && vi quotes.tex)
 
 bibtex:
 	(cd $(github_repository_level)/bibtex && make vi)

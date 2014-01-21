@@ -1,1 +1,1 @@
-added version number to common.mk
+changed common.mk targets at end to point to new thesis/github/notes.new repository
