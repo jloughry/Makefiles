@@ -39,7 +39,9 @@ readme:
 # Link to the BibTeX file if the link doesn't already exist (so we always have latest).
 #
 
-$(bibtex_file):
+.PHONY: .FORCE
+
+$(bibtex_file): .FORCE
 	@if [ ! -L $(bibtex_file) ]; then           \
 		ln -s $(bibtex_source) $(bibtex_file) ; \
 	fi
@@ -76,7 +78,7 @@ commit_only:
 		echo                                                   ; \
 		echo "Not in a Git respository. Try going up a level." ; \
 		echo                                                   ; \
-		false                                                  ; \
+		/bin/false                                             ; \
 	else \
 		make clean                                             ; \
 		make $(commit_message)                                 ; \
@@ -90,7 +92,7 @@ sync:
 		echo                                                   ; \
 		echo "Not in a Git respository. Try going up a level." ; \
 		echo                                                   ; \
-		false                                                  ; \
+		/bin/false                                             ; \
 	else \
 		git pull                                               ; \
 		git push                                               ; \
