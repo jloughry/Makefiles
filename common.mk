@@ -7,7 +7,7 @@
 
 github_repository_level = /cygdrive/c/Documents\ and\ Settings/rjl/My\ Documents/thesis/github
 
-# Version: 20th January 2014.
+# Version: 21st January 2014.
 
 bibtex_file = consolidated_bibtex_file.bib
 bibtex_source = $(github_repository_level)/bibtex/consolidated_bibtex_source.bib

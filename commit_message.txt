@@ -1,2 +1,1 @@
-trick to force always checking if symlink to consolidated_bibtex_file.bib exists.
-Source: http://stackoverflow.com/questions/7643838/how-to-force-make-to-always-rebuild-a-file
+update version number in common.mk
