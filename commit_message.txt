@@ -1,1 +1,1 @@
-update version number in common.mk
+improve messages indicating when this file runs

@@ -23,10 +23,10 @@ fix_bad_commits = fix_bad_commits.sh
 .PHONY: all clean allclean spell readme commit commit_only sync notes quotes bibtex cv commit-bibtex
 
 all::
-	@echo "This is \"all\" in the common.mk file"
+	@echo "This is \"all\" in the common.mk file."
 
 clean::
-	@echo "This is \"clean\" in the common.mk file"
+	@echo "This is \"clean\" in the common.mk file."
 	rm -f README.md.bak $(commit_message)
 
 spell::
