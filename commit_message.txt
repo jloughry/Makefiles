@@ -1,1 +1,1 @@
-improve messages indicating when this file runs
+update names of directories 'thesis' and 'notes.new' in Makefile

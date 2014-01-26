@@ -11,9 +11,9 @@
 # NOTE: don't run "make fix" in this directory; run it one level above.
 #
 
-almost_all_repositories = 33-questions BANCStar bibtex CESAR2012 CV dissertation \
+almost_all_repositories = 33-questions BANCStar bibtex CESAR2012 CV thesis \
 	experiments fizzbuzz FreeBSD help HST13 jloughry.github.io M1 \
-	Makefiles notes OpenSolaris optical_tempest PostScript public_keys \
+	Makefiles notes.new OpenSolaris optical_tempest PostScript public_keys \
 	subset Unicode VALID2010
 
 the_rest_of_the_repositories = FreeBSD
