@@ -20,9 +20,10 @@ fix_bad_commits = fix_bad_commits.sh
 # double-colon targets are done in addition to anything that might exist in the parent Makefile.
 #
 
-.PHONY: all clean allclean spell readme commit commit_only sync notes quotes bibtex cv commit-bibtex
+.PHONY: all clean allclean spell readme commit commit_only sync \
+		notes quotes cv symlink-to-bibtex-file commit-bibtex
 
-all::
+all:: symlink-to-bibtex-file
 	@echo "This is \"all\" in the common.mk file."
 
 clean::
@@ -39,12 +40,18 @@ readme:
 # Link to the BibTeX file if the link doesn't already exist (so we always have latest).
 #
 
-.PHONY: .FORCE
-
-$(bibtex_file): .FORCE
+symlink-to-bibtex-file:
 	@if [ ! -L $(bibtex_file) ]; then           \
 		ln -s $(bibtex_source) $(bibtex_file) ; \
 	fi
+
+#
+# I have been completely unable to find a solution to the problem of Makefiles
+# failing to notice when the consolidated_bibtex_file.bib has changed. It's as
+# if `make' is not looking through the symlink, but the manual says it should.
+#
+
+$(bibtex_file): symlink-to-bibtex-file
 
 #
 # This works like a lazy evaluation for commit message.
