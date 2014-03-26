@@ -1,1 +1,1 @@
-still trying to fix the unrecognised dependency on the consolidated BibTeX file in makefiles.
+added defensive targets against accidentally typing "make ci" for "make vi"

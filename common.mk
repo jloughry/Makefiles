@@ -38,6 +38,8 @@ readme:
 
 #
 # Link to the BibTeX file if the link doesn't already exist (so we always have latest).
+# This will leave some spam in directories that don't care about BibTeX, but it's not
+# easy to prevent without a complicated and fragile mechanism.
 #
 
 symlink-to-bibtex-file:
@@ -79,6 +81,16 @@ commit-bibtex:
 #
 
 commit-only: commit_only
+
+#
+# Defensive targets in case I mis-type `vi' as `ci': ci and co are old RCS
+# commands and I don't want those ever running.
+#
+
+.PHONY: ci co
+
+ci co:
+	@echo "Did you mean 'vi'?"
 
 commit_only:
 	@if [ ! -d .git ]; then \
