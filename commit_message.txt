@@ -1,1 +1,1 @@
-added defensive targets against accidentally typing "make ci" for "make vi"
+email from GitHub about failed build due to common.mk symlink
