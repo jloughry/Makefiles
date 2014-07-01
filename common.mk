@@ -99,7 +99,7 @@ commit_only:
 		echo                                                   ; \
 		/bin/false                                             ; \
 	else \
-		make clean                                             ; \
+		make allclean                                          ; \
 		make $(commit_message)                                 ; \
 		git add .                                              ; \
 		git commit -aF $(commit_message)                       ; \

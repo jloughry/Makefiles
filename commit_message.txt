@@ -1,1 +1,1 @@
-email from GitHub about failed build due to common.mk symlink
+when doing make commit, do make allclean first instead of make clean
