@@ -1,1 +1,1 @@
-when doing make commit, do make allclean first instead of make clean
+don't do make allclean before commit; do make clean
