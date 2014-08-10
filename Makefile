@@ -52,13 +52,13 @@ local_commit:
 	make local_commit_only
 	make local_sync
 
-local_commit_only: commit_message.txt
+local_commit_only: ${HOME}/commit_message.txt
 	make clean
 	git add .
-	git commit -aF commit_message.txt
-	rm -f commit_message.txt
+	git commit -aF ${HOME}/commit_message.txt
+	rm -f ${HOME}/commit_message.txt
 
-commit_message.txt:
+${HOME}/commit_message.txt:
 	@./get_commit_message.sh
 
 local_sync:

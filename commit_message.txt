@@ -1,1 +1,0 @@
-don't do make allclean before commit; do make clean
