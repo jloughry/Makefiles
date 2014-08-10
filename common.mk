@@ -28,7 +28,7 @@ all:: symlink-to-bibtex-file
 
 clean::
 	@echo "This is \"clean\" in the common.mk file."
-	rm -f README.md.bak $(commit_message)
+	rm -f README.md.bak $(commit_message) ./commit_message.txt
 
 spell::
 	aspell --lang=en_GB -H check README.md
