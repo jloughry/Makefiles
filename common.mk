@@ -118,6 +118,12 @@ sync:
 	fi
 
 #
+# Additional convenience targets:
+#
+
+reset: allclean
+
+#
 # Makefile depends on common.mk to be sure everything gets rebuilt
 # if common.mk changes, but it has to be done this way to `force'
 # the Makefile out-of-date if common.mk changes.
