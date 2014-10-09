@@ -16,6 +16,8 @@ commit_message = ${HOME}/commit_message.txt
 get_commit_message = get_commit_message.sh
 fix_bad_commits = fix_bad_commits.sh
 
+spurious_files = readme.md.bak \' make.exe.stackdump
+
 #
 # double-colon targets are done in addition to anything that might exist in the parent Makefile.
 #
@@ -28,7 +30,7 @@ all:: symlink-to-bibtex-file
 
 clean::
 	@echo "This is \"clean\" in the common.mk file."
-	rm -f README.md.bak $(commit_message) ./commit_message.txt
+	rm -f $(commit_message) ./commit_message.txt $(spurious_files)
 
 spell::
 	aspell --lang=en_GB -H check README.md
