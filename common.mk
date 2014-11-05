@@ -125,6 +125,9 @@ sync:
 
 reset: allclean
 
+ro:
+	(cd $(github_repository_level)/notes.new && view notes.tex)
+
 #
 # Makefile depends on common.mk to be sure everything gets rebuilt
 # if common.mk changes, but it has to be done this way to `force'
