@@ -146,6 +146,8 @@ quotes:
 bibtex:
 	(cd $(github_repository_level)/bibtex && make vi)
 
+bib: bibtex
+
 cv:
 	(cd $(github_repository_level)/CV && make vi loughry_cv.tex)
 
