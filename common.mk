@@ -30,7 +30,7 @@ all:: symlink-to-bibtex-file
 
 clean::
 	@echo "This is \"clean\" in the common.mk file."
-	rm -f $(commit_message) ./commit_message.txt $(spurious_files)
+	rm -vf $(commit_message) ./commit_message.txt $(spurious_files)
 
 spell::
 	aspell --lang=en_GB -H check README.md
@@ -105,7 +105,7 @@ commit_only:
 		make $(commit_message)                                 ; \
 		git add .                                              ; \
 		git commit -aF $(commit_message)                       ; \
-		rm -f $(commit_message)                                ; \
+		rm -vf $(commit_message)                                ; \
 	fi
 
 sync:
