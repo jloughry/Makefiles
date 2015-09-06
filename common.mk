@@ -71,7 +71,7 @@ $(commit_message): $(get_commit_message)
 $(get_commit_message):
 	ln -s $(github_repository_level)/Makefiles/$(get_commit_message)
 
-commit:
+commit::
 	make commit_only
 	make sync
 
