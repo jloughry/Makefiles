@@ -138,7 +138,7 @@ Makefile: common.mk
 	touch Makefile
 
 notes:
-	(cd $(github_repository_level)/notes.new && vi notes.tex)
+	(cd $(github_repository_level)/notes.new && vi + notes.tex)
 
 quotes:
 	(cd $(github_repository_level)/notes.new && vi quotes.tex)
