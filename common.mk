@@ -151,3 +151,7 @@ bib: bibtex
 cv:
 	(cd $(github_repository_level)/CV && make vi loughry_cv.tex)
 
+honda:
+	(cd $(github_repository_level)/notes.new/graphics && vi + honda_mileage.txt)
+
+
