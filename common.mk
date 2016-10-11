@@ -46,7 +46,7 @@ readme:
 
 symlink-to-bibtex-file:
 	@if [ ! -L $(bibtex_file) ]; then           \
-		ln -s $(bibtex_source) $(bibtex_file) ; \
+		ln -fs $(bibtex_source) $(bibtex_file) ; \
 	fi
 
 #
@@ -69,7 +69,8 @@ $(commit_message): $(get_commit_message)
 #
 
 $(get_commit_message):
-	ln -s $(github_repository_level)/Makefiles/$(get_commit_message)
+	ln -fs $(github_repository_level)/Makefiles/$(get_commit_message)
+	chmod u+x $(get_commit_message)
 
 commit::
 	make commit_only
