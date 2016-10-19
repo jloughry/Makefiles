@@ -1,11 +1,12 @@
-#
-# I hate to hard-code this path, because the resulting functionality only
-# works for repositories underneath my `github' directory, but trying to
-# make automation too intelligent violates the YAGNI principle and I have
-# a thesis to write.
-#
+OS := $(shell uname -s)
 
-github_repository_level = /cygdrive/c/Documents\ and\ Settings/rjl/My\ Documents/thesis/github
+ifeq ($(OS), Darwin)
+    github_repository_level = ~/thesis/github
+endif
+
+ifeq ($(OS), CYGWIN*)
+    github_repository_level = /cygdrive/c/Documents\ and\ Settings/rjl/My\ Documents/thesis/github
+endif
 
 # Version: 21st January 2014.
 
@@ -154,5 +155,4 @@ cv:
 
 honda:
 	(cd $(github_repository_level)/notes.new/graphics && vi + honda_mileage.txt)
-
 
