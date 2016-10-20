@@ -4,7 +4,7 @@ ifeq ($(OS), Darwin)
     github_repository_level = ~/thesis/github
 endif
 
-ifeq ($(OS), CYGWIN*)
+ifeq ($(OS), CYGWIN_NT-5.1)
     github_repository_level = /cygdrive/c/Documents\ and\ Settings/rjl/My\ Documents/thesis/github
 endif
 
