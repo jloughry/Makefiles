@@ -11,7 +11,7 @@ endif
 # Version: 21st January 2014.
 
 bibtex_file = consolidated_bibtex_file.bib
-bibtex_source = $(github_repository_level)/bibtex/consolidated_bibtex_source.bib
+bibtex_source = ../bibtex/consolidated_bibtex_source.bib
 
 commit_message = ${HOME}/commit_message.txt
 get_commit_message = get_commit_message.sh
