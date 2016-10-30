@@ -156,3 +156,6 @@ cv:
 honda:
 	(cd $(github_repository_level)/notes.new/graphics && vi + honda_mileage.txt)
 
+mini:
+	(cd $(github_repository_level)/notes.new/graphics && vi + mini_mileage.txt)
+
