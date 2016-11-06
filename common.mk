@@ -125,7 +125,7 @@ sync:
 # Additional convenience targets:
 #
 
-reset: allclean
+reset: clean
 
 ro:
 	(cd $(github_repository_level)/notes.new && view + notes.tex)
