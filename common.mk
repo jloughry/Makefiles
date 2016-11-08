@@ -158,4 +158,5 @@ honda:
 
 mini:
 	(cd $(github_repository_level)/notes.new/graphics && vi + mini_mileage.txt)
+	(cd $(github_repository_level)/notes.new/graphics && tail -2 mini_mileage.txt | head -1 >> difference_in_mileage.txt)
 
