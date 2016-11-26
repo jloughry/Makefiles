@@ -153,10 +153,28 @@ bib: bibtex
 cv:
 	(cd $(github_repository_level)/CV && make vi loughry_cv.tex)
 
+honda_mileage_file = honda_mileage.txt
+mini_mileage_file = mini_mileage.txt
+difference_in_mileage_file = difference_in_mileage.txt
+
 honda:
-	(cd $(github_repository_level)/notes.new/graphics && vi + honda_mileage.txt)
+	(cd $(github_repository_level)/notes.new/graphics && vi + $(honda_mileage_file))
 
 mini:
-	(cd $(github_repository_level)/notes.new/graphics && vi + mini_mileage.txt)
-	(cd $(github_repository_level)/notes.new/graphics && tail -2 mini_mileage.txt | head -1 >> difference_in_mileage.txt)
+	(cd $(github_repository_level)/notes.new/graphics && vi + $(mini_mileage_file))
+
+	$(eval last_line = $(shell (cd $(github_repository_level)/notes.new/graphics \
+		&& tail -1 $(mini_mileage_file))))
+
+	@if [ "$(last_line)" = "" ]; then \
+		echo "Grabbing the second to last line of $(mini_mileage_file)" ; \
+		(cd $(github_repository_level)/notes.new/graphics \
+			&& tail -2 $(mini_mileage_file) | head -1 \
+			>> $(difference_in_mileage_file)) ; \
+	else \
+		echo "Grabbing last line only of $(mini_mileage_file)" ; \
+		(cd $(github_repository_level)/notes.new/graphics \
+			&& tail -1 $(mini_mileage_file) \
+			>> $(difference_in_mileage_file)) ; \
+	fi
 
