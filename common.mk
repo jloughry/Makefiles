@@ -40,7 +40,7 @@ spell::
 	aspell --lang=en_GB -H check README.md
 
 readme:
-	$(editor_cmd) README.md
+	@$(editor_cmd) README.md && echo "OK" || echo "return code from vi was $$?"
 
 #
 # Link to the BibTeX file if the link doesn't already exist (so we always have latest).
@@ -131,7 +131,8 @@ sync:
 reset: clean
 
 ro:
-	(cd $(github_repository_level)/notes.new && $(editor_readonly) + notes.tex)
+	(cd $(github_repository_level)/notes.new && $(editor_readonly) + notes.tex \
+		&& echo "OK" || echo "return code from vi was $$?")
 
 #
 # Makefile depends on common.mk to be sure everything gets rebuilt
@@ -143,28 +144,36 @@ Makefile: common.mk
 	touch Makefile
 
 notes:
-	(cd $(github_repository_level)/notes.new && $(editor_cmd) + notes.tex)
+	(cd $(github_repository_level)/notes.new && $(editor_cmd) + notes.tex \
+		&& echo "OK" || echo "return code from vi was $$?")
 
 quotes:
-	(cd $(github_repository_level)/notes.new && $(editor_cmd) quotes.tex)
+	(cd $(github_repository_level)/notes.new && $(editor_cmd) quotes.tex \
+		&& echo "OK" || echo "return code from vi was $$?")
 
 bibtex:
-	(cd $(github_repository_level)/bibtex && make vi)
+	(cd $(github_repository_level)/bibtex && make vi \
+		&& echo "OK" || echo "return code from vi was $$?")
 
 bib: bibtex
 
 cv:
-	(cd $(github_repository_level)/CV && make vi loughry_cv.tex)
+	(cd $(github_repository_level)/CV && make vi loughry_cv.tex \
+		&& echo "OK" || echo "return code from vi was $$?")
 
 honda_mileage_file = honda_mileage.txt
 mini_mileage_file = mini_mileage.txt
 difference_in_mileage_file = difference_in_mileage.txt
 
 honda:
-	(cd $(github_repository_level)/notes.new/graphics && $(editor_cmd) + $(honda_mileage_file))
+	(cd $(github_repository_level)/notes.new/graphics \
+		&& $(editor_cmd) + $(honda_mileage_file) \
+		&& echo "OK" || echo "return code from vi was $$?")
 
 mini:
-	(cd $(github_repository_level)/notes.new/graphics && $(editor_cmd) + $(mini_mileage_file))
+	(cd $(github_repository_level)/notes.new/graphics \
+		&& $(editor_cmd) + $(mini_mileage_file) \
+		&& echo "OK" || echo "return code from vi was $$?")
 
 	$(eval last_line = $(shell (cd $(github_repository_level)/notes.new/graphics \
 		&& tail -1 $(mini_mileage_file))))
