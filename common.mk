@@ -19,6 +19,9 @@ fix_bad_commits = fix_bad_commits.sh
 
 spurious_files = readme.md.bak \' make.exe.stackdump
 
+editor_cmd = /usr/bin/vi
+editor_readonly = /usr/bin/view
+
 #
 # double-colon targets are done in addition to anything that might exist in the parent Makefile.
 #
@@ -37,7 +40,7 @@ spell::
 	aspell --lang=en_GB -H check README.md
 
 readme:
-	vi README.md
+	$(editor_cmd) README.md
 
 #
 # Link to the BibTeX file if the link doesn't already exist (so we always have latest).
@@ -128,7 +131,7 @@ sync:
 reset: clean
 
 ro:
-	(cd $(github_repository_level)/notes.new && view + notes.tex)
+	(cd $(github_repository_level)/notes.new && $(editor_readonly) + notes.tex)
 
 #
 # Makefile depends on common.mk to be sure everything gets rebuilt
@@ -140,10 +143,10 @@ Makefile: common.mk
 	touch Makefile
 
 notes:
-	(cd $(github_repository_level)/notes.new && vi + notes.tex)
+	(cd $(github_repository_level)/notes.new && $(editor_cmd) + notes.tex)
 
 quotes:
-	(cd $(github_repository_level)/notes.new && vi quotes.tex)
+	(cd $(github_repository_level)/notes.new && $(editor_cmd) quotes.tex)
 
 bibtex:
 	(cd $(github_repository_level)/bibtex && make vi)
@@ -158,10 +161,10 @@ mini_mileage_file = mini_mileage.txt
 difference_in_mileage_file = difference_in_mileage.txt
 
 honda:
-	(cd $(github_repository_level)/notes.new/graphics && vi + $(honda_mileage_file))
+	(cd $(github_repository_level)/notes.new/graphics && $(editor_cmd) + $(honda_mileage_file))
 
 mini:
-	(cd $(github_repository_level)/notes.new/graphics && vi + $(mini_mileage_file))
+	(cd $(github_repository_level)/notes.new/graphics && $(editor_cmd) + $(mini_mileage_file))
 
 	$(eval last_line = $(shell (cd $(github_repository_level)/notes.new/graphics \
 		&& tail -1 $(mini_mileage_file))))
