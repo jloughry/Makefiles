@@ -90,10 +90,10 @@ spell::
 	aspell --lang=en_GB check $(documentation)
 
 notes:
-	(cd ../notes && make vi)
+	(cd ../notes.new && make vi)
 
 quotes:
-	(cd ../notes && make quotes)
+	(cd ../notes.new && make quotes)
 
 bibtex:
 	(cd ../bibtex && make vi)
