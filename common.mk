@@ -73,7 +73,7 @@ $(commit_message): $(get_commit_message)
 #
 
 $(get_commit_message):
-	ln -fs $(github_repository_level)/Makefiles/$(get_commit_message)
+	ln -fs ../Makefiles/$(get_commit_message)
 	chmod u+x $(get_commit_message)
 
 commit::
