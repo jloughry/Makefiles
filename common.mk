@@ -13,7 +13,7 @@ endif
 bibtex_file = consolidated_bibtex_file.bib
 bibtex_source = ../bibtex/consolidated_bibtex_source.bib
 
-commit_message = ${HOME}/commit_message.txt
+commit_message = commit_message.txt
 get_commit_message = get_commit_message.sh
 fix_bad_commits = fix_bad_commits.sh
 

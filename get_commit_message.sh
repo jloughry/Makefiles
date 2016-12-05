@@ -1,14 +1,17 @@
 #!/bin/sh
 
-message_file="${HOME}/commit_message.txt"
+message="commit_message.txt"
 
-rm -f $message_file
-touch $message_file
+rm -f $message
+touch $message
 
-/bin/echo "Ready to commit; give me a message (it can be multiple lines)"
+/bin/echo "Ready to commit; give me a message (it can be multiple lines); end with '.'"
 /bin/echo -n "> "
-while read commit_message
-	if [ "$commit_message" == "." ] ; then break; fi
-	do echo $commit_message >> $message_file
+
+read line
+while [ "$line" != "." ]
+do
+    echo $line >> $message
+    read line
 done
 
