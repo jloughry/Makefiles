@@ -190,3 +190,8 @@ mini:
 			>> $(difference_in_mileage_file)) ; \
 	fi
 
+	@echo "Here's what the last few lines of the $(mini_mileage_file) look like:"
+	@(cd $(github_repository_level)/notes.new/graphics && tail -5 $(mini_mileage_file))
+	@echo "And here's what the last few lines of the $(difference_in_mileage_file) look like:"
+	@(cd $(github_repository_level)/notes.new/graphics && tail -5 $(difference_in_mileage_file))
+
