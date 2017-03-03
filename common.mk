@@ -163,6 +163,7 @@ cv:
 
 honda_mileage_file = honda_mileage.txt
 mini_mileage_file = mini_mileage.txt
+hyundai_mileage_file = hyundai_mileage.txt
 difference_in_mileage_file = difference_in_mileage.txt
 
 honda:
@@ -171,6 +172,8 @@ honda:
 		&& echo "OK" || echo "return code from vi was $$?")
 
 mini:
+	@echo "Use 'make hyundai' instead"
+	exit 1
 	@(cd $(github_repository_level)/notes.new/graphics \
 		&& $(editor_cmd) + $(mini_mileage_file) \
 		&& echo "OK" || echo "return code from vi was $$?")
@@ -192,6 +195,31 @@ mini:
 
 	@echo "Here's what the last few lines of the $(mini_mileage_file) look like:"
 	@(cd $(github_repository_level)/notes.new/graphics && tail -5 $(mini_mileage_file))
+	@echo "And here's what the last few lines of the $(difference_in_mileage_file) look like:"
+	@(cd $(github_repository_level)/notes.new/graphics && tail -5 $(difference_in_mileage_file))
+
+hyundai:
+	@(cd $(github_repository_level)/notes.new/graphics \
+		&& $(editor_cmd) + $(hyundai_mileage_file) \
+		&& echo "OK" || echo "return code from vi was $$?")
+
+	$(eval last_line = $(shell (cd $(github_repository_level)/notes.new/graphics \
+		&& tail -1 $(hyundai_mileage_file))))
+
+	@if [ "$(last_line)" = "" ]; then \
+		echo "Grabbing the second to last line of $(hyundai_mileage_file)" ; \
+		(cd $(github_repository_level)/notes.new/graphics \
+			&& tail -2 $(hyundai_mileage_file) | head -1 \
+			>> $(difference_in_mileage_file)) ; \
+	else \
+		echo "Grabbing last line only of $(hyundai_mileage_file)" ; \
+		(cd $(github_repository_level)/notes.new/graphics \
+			&& tail -1 $(hyundai_mileage_file) \
+			>> $(difference_in_mileage_file)) ; \
+	fi
+
+	@echo "Here's what the last few lines of the $(hyundai_mileage_file) look like:"
+	@(cd $(github_repository_level)/notes.new/graphics && tail -5 $(hyundai_mileage_file))
 	@echo "And here's what the last few lines of the $(difference_in_mileage_file) look like:"
 	@(cd $(github_repository_level)/notes.new/graphics && tail -5 $(difference_in_mileage_file))
 

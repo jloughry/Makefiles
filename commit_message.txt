@@ -1,1 +1,1 @@
-display changes after `make mini` runs
+add target for new car fuel
