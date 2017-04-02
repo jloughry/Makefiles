@@ -27,7 +27,8 @@ editor_readonly = /usr/bin/view
 #
 
 .PHONY: all clean allclean spell readme commit commit_only sync \
-		notes quotes cv symlink-to-bibtex-file commit-bibtex
+		notes quotes cv symlink-to-bibtex-file commit-bibtex \
+		honda mini hyundai
 
 all:: symlink-to-bibtex-file
 	@echo "This is \"all\" in the common.mk file."

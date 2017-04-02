@@ -1,1 +1,1 @@
-add target for new car fuel
+force shell to auto-complete phony targets
