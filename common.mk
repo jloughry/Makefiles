@@ -224,3 +224,8 @@ hyundai:
 	@echo "And here's what the last few lines of the $(difference_in_mileage_file) look like:"
 	@(cd $(github_repository_level)/notes.new/graphics && tail -5 $(difference_in_mileage_file))
 
+changes:
+	git diff
+
+# This is a file truncation sentinel; it should be the last line in the file.
+

@@ -1,1 +1,1 @@
-force shell to auto-complete phony targets
+added target `make changes' to common.mk (and file truncation sentinel that I forgot to commit earlier)
