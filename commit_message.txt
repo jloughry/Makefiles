@@ -1,1 +1,1 @@
-added target `make changes' to common.mk (and file truncation sentinel that I forgot to commit earlier)
+limit line length on commit messages
