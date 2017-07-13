@@ -1,1 +1,1 @@
-limit line length on commit messages
+Visually suggest a good length for commit messages
