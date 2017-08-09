@@ -57,7 +57,7 @@ local_commit:
 local_commit_only: $(commit_message)
 	make clean
 	git add .
-	git commit -aF $(commit_message)
+	git commit -F $(commit_message)
 	rm -fv $(commit_message)
 
 $(commit_message):
