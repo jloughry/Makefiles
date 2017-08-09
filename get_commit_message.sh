@@ -1,6 +1,14 @@
 #!/bin/sh
 
-message="commit_message.txt"
+message="/tmp/commit_message.txt"
+
+#
+# XXX FIXME: This isn't great (because potential race condition) but it's
+# probably not a security vulnerability, so do this and get on with other
+# work. Better ways to do it include (1) use a Bash variable instead of a
+# temporary file to hold the message---but that would require quoting---or
+# create the temp file with a unique UUID prefix every time.
+#
 
 rm -f $message
 touch $message

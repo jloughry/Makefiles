@@ -1,1 +1,0 @@
-Visually suggest a good length for commit messages

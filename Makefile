@@ -22,6 +22,8 @@ all_repositories = $(almost_all_repositories) $(the_rest_of_the_repositories)
 
 documentation = README.md
 
+commit_message = /tmp/commit_message.txt
+
 .PHONY: notes bibtex cv
 
 all::
@@ -52,13 +54,13 @@ local_commit:
 	make local_commit_only
 	make local_sync
 
-local_commit_only: commit_message.txt
+local_commit_only: $(commit_message)
 	make clean
 	git add .
-	git commit -aF commit_message.txt
-	rm -f commit_message.txt
+	git commit -aF $(commit_message)
+	rm -fv $(commit_message)
 
-commit_message.txt:
+$(commit_message):
 	@./get_commit_message.sh
 
 local_sync:
