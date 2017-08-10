@@ -109,9 +109,9 @@ commit_only:
 	else \
 		make clean                                             ; \
 		make $(commit_message)                                 ; \
-		git add -A                                             ; \
-		git commit -aF $(commit_message)                       ; \
-		rm -vf $(commit_message)                                ; \
+		git add .                                              ; \
+		git commit -F $(commit_message)                        ; \
+		rm -vf $(commit_message)                               ; \
 	fi
 
 sync:
