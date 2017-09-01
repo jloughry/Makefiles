@@ -129,7 +129,7 @@ sync:
 # Additional convenience targets:
 #
 
-reset: clean
+reset:: clean
 
 ro:
 	(cd $(github_repository_level)/notes.new && $(editor_readonly) + notes.tex \
@@ -142,7 +142,6 @@ ro:
 #
 
 Makefile: common.mk
-	touch Makefile
 
 notes:
 	@(cd $(github_repository_level)/notes.new && $(editor_cmd) + notes.tex \
