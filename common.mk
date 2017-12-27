@@ -10,7 +10,7 @@ endif
 
 # Version: 21st January 2014.
 
-bibtex_file = consolidated_bibtex_file.bib
+bibtex_file = ./consolidated_bibtex_file.bib
 bibtex_source = ../bibtex/consolidated_bibtex_source.bib
 
 commit_message = /tmp/commit_message.txt
@@ -222,6 +222,8 @@ hyundai:
 	@(cd $(github_repository_level)/notes.new/graphics && tail -5 $(hyundai_mileage_file))
 	@echo "And here's what the last few lines of the $(difference_in_mileage_file) look like:"
 	@(cd $(github_repository_level)/notes.new/graphics && tail -5 $(difference_in_mileage_file))
+
+change: changes
 
 changes:
 	git diff
