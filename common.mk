@@ -112,6 +112,7 @@ commit_only:
 		git add .                                              ; \
 		git commit -F $(commit_message)                        ; \
 		rm -vf $(commit_message)                               ; \
+		git status                                             ; \
 	fi
 
 sync:
