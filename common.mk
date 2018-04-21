@@ -225,6 +225,7 @@ hyundai:
 	@(cd $(github_repository_level)/notes.new/graphics && tail -5 $(difference_in_mileage_file))
 
 change: changes
+chnages: changes
 
 changes:
 	git diff
