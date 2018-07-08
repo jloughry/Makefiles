@@ -106,14 +106,13 @@ commit_only:
 		echo "Not in a Git respository. Try going up a level." ; \
 		echo                                                   ; \
 		/bin/false                                             ; \
-	else \
-		make clean                                             ; \
-		make $(commit_message)                                 ; \
-		git add .                                              ; \
-		git commit -F $(commit_message)                        ; \
-		rm -vf $(commit_message)                               ; \
-		git status                                             ; \
 	fi
+	make clean
+	make $(commit_message)
+	git add .
+	git commit -F $(commit_message)
+	rm -vf $(commit_message)
+	git status
 
 sync:
 	@if [ ! -d .git ]; then \
@@ -121,10 +120,9 @@ sync:
 		echo "Not in a Git respository. Try going up a level." ; \
 		echo                                                   ; \
 		/bin/false                                             ; \
-	else \
-		git pull                                               ; \
-		git push                                               ; \
 	fi
+	git pull
+	git push
 
 #
 # Additional convenience targets:
