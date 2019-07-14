@@ -224,6 +224,7 @@ hyundai:
 
 change: changes
 chnages: changes
+ch: changes
 
 changes:
 	git diff
