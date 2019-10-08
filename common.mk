@@ -224,6 +224,7 @@ hyundai:
 
 change: changes
 chnages: changes
+hanges: changes
 ch: changes
 
 changes:
