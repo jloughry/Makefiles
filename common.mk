@@ -108,6 +108,7 @@ commit_only:
 		/bin/false                                             ; \
 	fi
 	make clean
+	make changes
 	make $(commit_message)
 	git add .
 	git commit -F $(commit_message)
