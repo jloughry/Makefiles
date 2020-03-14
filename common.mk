@@ -231,5 +231,8 @@ ch: changes
 changes:
 	git diff
 
+barf:
+	(cd ~/thesis/github/notes.new && make barf_this_year)
+
 # This is a file truncation sentinel; it should be the last line in the file.
 
