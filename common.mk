@@ -155,6 +155,7 @@ bibtex:
 	@(cd $(github_repository_level)/bibtex && make vi \
 		&& echo "OK" || echo "return code from vi was $$?")
 
+viv: bibtex
 bib: bibtex
 
 cv:
